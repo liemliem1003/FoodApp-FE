@@ -1,0 +1,17 @@
+<div class="container" *ngIf="visible">
+        <img src="/assets/image/Home/Logo.png" alt="logo" class="logo">
+        <img src="/assets/image/Home/BranchName.png" alt="branchName"
+            class="branchName">
+</div>
+<!-- <div class="container-slideShow" > -->
+    <div class="container-slideShow" *ngIf="!visible">
+    <img [src]="navigationImg[selectedPage].img" alt="">
+    <span class="text">{{navigationImg[selectedPage].text}}</span>
+    <div class="nav">
+        <button class="back" [disabled]="selectedPage == 0" (click)="ChangePage(selectedPage-1)" ><</button>
+        <span>
+            <button class="nav-Btn {{selectedPage == i ? 'selected' : ''}}" *ngFor="let item of navigationImg, let i = index" (click)="ChangePage(i)"></button>
+        </span>
+        <button class="next" [disabled]="selectedPage == navigationImg.length-1" (click)="ChangePage(selectedPage+1)" >></button>
+    </div>
+</div>

@@ -1,0 +1,98 @@
+.container,.container-slideShow{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo,.branchName{
+    animation: slideInLeftToRight 1s ease-in-out forwards; 
+}
+
+.branchName{
+    margin-top: 42px;
+}
+
+.container{
+    background-color: #FF7A1C;
+    animation: slideOutRightToLeft 1s ease 3s forwards; 
+
+}
+
+.container-slideShow {
+    position: relative;
+    animation: slideInRightToLeft 1s ease-in-out forwards;
+}
+
+// .container-slideShow .text {
+// }
+
+.nav {
+    position: fixed;
+    bottom: 62px; /* Fixed at 62px from the bottom */
+    left: 50%; /* Start positioning in the middle */
+    transform: translateX(-50%); /* Shift it back to center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-Btn{
+    width: 10px;
+    height: 10px;
+    margin: 6px;
+    background-color: #FFD7BB;
+    border: none;
+}
+.selected{
+    background-color:#FF7A1C;
+}
+.text{
+    font-size: 30px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    margin-top: 70px;
+    text-align: center;
+
+}
+
+.back,.next{
+    margin: 0 21px;
+    background-color: white;
+    border: none;
+    font-size: 30px;
+}
+
+@keyframes slideInLeftToRight {
+    0% {
+        transform: translateX(-100%); /* Start off-screen to the left */
+        opacity: 0; /* Optional: start with invisible */
+    }
+    100% {
+        transform: translateX(0); /* End at the original position */
+        opacity: 1; /* Optional: fully visible */
+    }
+}
+
+@keyframes slideOutRightToLeft {
+    0% {
+        transform: translateX(0); /* Start off-screen to the left */
+        opacity: 1; /* Optional: start with invisible */
+    }
+    100% {
+        transform: translateX(-100%); /* End at the original position */
+        opacity: 0; /* Optional: fully visible */
+    }
+}
+
+@keyframes slideInRightToLeft {
+    0% {
+        transform: translateX(100%); /* Start off-screen to the left */
+        opacity: 0; /* Optional: start with invisible */
+    }
+    100% {
+        transform: translateX(0); /* End at the original position */
+        opacity: 1; /* Optional: fully visible */
+    }
+}

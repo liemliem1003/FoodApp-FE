@@ -1,0 +1,73 @@
+<div class="container" *ngIf="!logInByUsername">
+    <img src="/assets/image/Login/Logo.png" class="logo" alt>
+    <div class="text">Let's you in</div>
+    <div class="login-container">
+        <div class="login-option" *ngFor="let option of loginOption">
+            <img [src]="option.img" alt class="icon">
+            <span>Continue with {{option.text}}</span>
+        </div>
+    </div>
+    <div class="text-between-hr">
+        <hr>
+        <span class="text-content">or</span>
+        <hr>
+    </div>
+    <button class="general-btn" (click)="ChangeLogInByUsername()">Sign in with
+        password</button>
+    <button class="create-account-btn" (click)="ChangeVisibleOfCreateAccount()">
+        <img src="/assets/image/Login/UpArrow.png" alt>
+        <span>Create an account</span>
+    </button>
+
+</div>
+
+<div class="container" *ngIf="logInByUsername">
+    <img src="/assets/image/Login/Logo.png" class="logo" alt>
+    <div class="text">Sign in</div>
+    <div class="input-group for-sign-in">
+        <input type="text" placeholder="Username or Email">
+        <div class="password">
+            <input type="{{showPassword?'password':'text'}}" placeholder="Password">
+            <img
+                src="/assets/image/Login/{{showPassword?'ShowPassword.png':'UnShowPassword.png'}}"
+                alt (click)="ChangeShowPassword()">
+        </div>
+    </div>
+    <div class="forget-password">Forgot your password?</div>
+    <div class="text-between-hr">
+        <hr>
+        <span class="text-content">or</span>
+        <hr>
+    </div>
+    <div class="social-group">
+        <img *ngFor="let option of loginOption" [src]="option.img">
+    </div>
+    <button class="general-btn" (click)="ChangeLogInByUsername()">Next</button>
+    <button class="create-account-btn" (click)="ChangeVisibleOfCreateAccount()">
+        <img src="/assets/image/Login/UpArrow.png" alt>
+        <span>Create an account</span>
+    </button>
+</div>
+
+<div class="create-account-panel"
+    ngClass="{{createAccount?'appear':'disappear'}}">
+    <button class="create-account-btn" (click)="ChangeVisibleOfCreateAccount()">
+        <img src="/assets/image/Login/DownArrow.png" alt>
+        <span>Create an account</span>
+    </button>
+    <div class="input-group for-create-account">
+        <input type="text" placeholder="Name">
+        <input type="text" placeholder="Phone">
+        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Password">
+        <div class="send-promotion-group">
+            <input type="checkbox" id='sendPromotion' name>
+            <label for="sendPromotion">Please send me special
+                promotions</label>
+        </div>
+        <button class="general-btn">Register</button>
+        <div class="social-group">
+            <img *ngFor="let option of loginOption" [src]="option.img">
+        </div>
+    </div>
+</div>

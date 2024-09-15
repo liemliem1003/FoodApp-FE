@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
   showPassword:boolean = false
-  logInByUsername: boolean = true
+  sectionNumber: number = 0
   createAccount: boolean = false
   loginOption: any = [
     {
@@ -30,8 +30,10 @@ export class LoginComponent {
   ChangeVisibleOfCreateAccount(){
     this.createAccount= !this.createAccount
   }
-  ChangeLogInByUsername(){
-    this.logInByUsername= !this.logInByUsername
+  ChangeSectionNumber(number:number){
+    console.log(number);
+    
+    this.sectionNumber= number
   }
   ChangeShowPassword(){
     this.showPassword= !this.showPassword

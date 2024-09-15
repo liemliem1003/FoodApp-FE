@@ -1,4 +1,4 @@
-<div class="container" *ngIf="!logInByUsername">
+<div class="container" *ngIf="sectionNumber==0">
     <img src="/assets/image/Login/Logo.png" class="logo" alt>
     <div class="text">Let's you in</div>
     <div class="login-container">
@@ -12,7 +12,7 @@
         <span class="text-content">or</span>
         <hr>
     </div>
-    <button class="general-btn" (click)="ChangeLogInByUsername()">Sign in with
+    <button class="general-btn" (click)="ChangeSectionNumber(1)">Sign in with
         password</button>
     <button class="create-account-btn" (click)="ChangeVisibleOfCreateAccount()">
         <img src="/assets/image/Login/UpArrow.png" alt>
@@ -21,13 +21,14 @@
 
 </div>
 
-<div class="container" *ngIf="logInByUsername">
+<div class="container container-appear" *ngIf="sectionNumber==1">
     <img src="/assets/image/Login/Logo.png" class="logo" alt>
     <div class="text">Sign in</div>
     <div class="input-group for-sign-in">
         <input type="text" placeholder="Username or Email">
         <div class="password">
-            <input type="{{showPassword?'password':'text'}}" placeholder="Password">
+            <input type="{{showPassword?'password':'text'}}"
+                placeholder="Password">
             <img
                 src="/assets/image/Login/{{showPassword?'ShowPassword.png':'UnShowPassword.png'}}"
                 alt (click)="ChangeShowPassword()">
@@ -42,11 +43,21 @@
     <div class="social-group">
         <img *ngFor="let option of loginOption" [src]="option.img">
     </div>
-    <button class="general-btn" (click)="ChangeLogInByUsername()">Next</button>
+    <button class="general-btn next-btn"
+        (click)="ChangeSectionNumber(2)">Next</button>
     <button class="create-account-btn" (click)="ChangeVisibleOfCreateAccount()">
         <img src="/assets/image/Login/UpArrow.png" alt>
         <span>Create an account</span>
     </button>
+</div>
+
+<div class="container container-appear" *ngIf="sectionNumber==2">
+    <img src="/assets/image/Login/Logo.png" class="logo" alt>
+    <div class="text">Let's you in</div>
+    <button class="general-btn next-btn font-size18px">Continue with customer</button>
+    <button class="general-btn next-btn font-size18px">Continue with business partner</button>
+    <div class="test"></div>
+
 </div>
 
 <div class="create-account-panel"

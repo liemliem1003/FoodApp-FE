@@ -79,6 +79,10 @@ hr {
     font-size: 20px;
 }
 
+.next-btn{
+    margin-top: 25px;
+}
+
 .create-account-btn {
     border: 1px solid black;
     border-radius: 15px 15px 0 0;
@@ -187,6 +191,30 @@ hr {
     color: #42A5F5;
 }
 
+.container-appear{
+    animation: container-appear-animation 0.5s ease-in-out forwards;
+}
+
+.font-size18px{
+    color: white !important;
+    font-size: 18px;
+}
+
+.test{
+    margin-bottom: auto;
+}
+
+@keyframes container-appear-animation {
+    0% {
+        transform: translateY(-1%);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 
 @keyframes slideInBottomToTop {
     0% {

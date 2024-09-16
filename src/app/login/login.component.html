@@ -27,14 +27,14 @@
     <div class="input-group for-sign-in">
         <input type="text" placeholder="Username or Email">
         <div class="password">
-            <input type="{{showPassword?'password':'text'}}"
+            <input type="{{!showPassword?'password':'text'}}"
                 placeholder="Password">
             <img
-                src="/assets/image/Login/{{showPassword?'ShowPassword.png':'UnShowPassword.png'}}"
+                src="/assets/image/Login/{{!showPassword?'ShowPassword.png':'UnShowPassword.png'}}"
                 alt (click)="ChangeShowPassword()">
         </div>
     </div>
-    <div class="forget-password">Forgot your password?</div>
+    <div class="forget-password" (click)="ChangeSectionNumber(4)">Forgot your password?</div>
     <div class="text-between-hr">
         <hr>
         <span class="text-content">or</span>
@@ -43,7 +43,7 @@
     <div class="social-group">
         <img *ngFor="let option of loginOption" [src]="option.img">
     </div>
-    <button class="general-btn next-btn"
+    <button class="general-btn"
         (click)="ChangeSectionNumber(2)">Next</button>
     <button class="create-account-btn" (click)="ChangeVisibleOfCreateAccount()">
         <img src="/assets/image/Login/UpArrow.png" alt>
@@ -54,10 +54,30 @@
 <div class="container container-appear" *ngIf="sectionNumber==2">
     <img src="/assets/image/Login/Logo.png" class="logo" alt>
     <div class="text">Let's you in</div>
-    <button class="general-btn next-btn font-size18px">Continue with customer</button>
-    <button class="general-btn next-btn font-size18px">Continue with business partner</button>
+    <button class="general-btn font-size18px"
+        (click)="ChangeSectionNumber(3)">Continue with customer</button>
+    <button class="general-btn font-size18px"
+        (click)="ChangeSectionNumber(3)">Continue with business partner</button>
     <div class="test"></div>
+</div>
 
+<div class="container container-appear" *ngIf="sectionNumber==3">
+    <img src="/assets/image/Login/Logo.png" class="logo" alt>
+    <button class="general-btn gray-btn">Select Country</button>
+    <button class="general-btn gray-btn">Select City</button>
+    <button class="general-btn bottom-btn">Search</button>
+</div>
+
+<div class="container container-appear forget-password-group" *ngIf="sectionNumber==4">
+    <img src="/assets/image/Login/LockIcon.png" class="logo" alt>
+    <div class="text">Forgot Your Password</div>
+    <div class="forget-password-text">If you need help resetting your password,
+        we can help by sending you a link to reset it</div>
+    <div class="input-group">
+        <input type="text"
+            placeholder="Email/Telephone Number">
+    </div>
+    <button class="general-btn bottom-btn">Send Password</button>
 </div>
 
 <div class="create-account-panel"

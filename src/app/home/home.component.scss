@@ -41,10 +41,16 @@
 .nav-Btn{
     width: 10px;
     height: 10px;
-    margin: 5px;
+    margin: 6px;
     background-color: #FFD7BB;
     border: none;
 }
+
+@media only screen and (max-width: 390px) {
+    .nav-Btn{
+        margin: 4px;
+    }
+  }
 .selected{
     background-color:#FF7A1C;
 }
